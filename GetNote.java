@@ -18,7 +18,7 @@ public class GetNote extends HttpServlet {
     static final String DB_URL = "jdbc:mysql://123.60.33.200/Note";
     static final String USER = "root";
     static final String PASS = "2001314syqSYQ!";
-    static final String SQL_QURERY_STUDENT_BY_ID = "SELECT id, notepad_content FROM t_notepad WHERE id=?";
+    static final String SQL_QURERY_NOTE_BY_ID = "SELECT id, notepadContent, notepadTime FROM t_notepad WHERE id=?";
     static final String REDIS_URL = "123.60.33.200";
 
     static Connection conn = null;
@@ -71,7 +71,7 @@ public class GetNote extends HttpServlet {
         Notepad note = new Notepad();
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement(SQL_QURERY_Note_BY_ID);
+            stmt = conn.prepareStatement(SQL_QURERY_NOTE_BY_ID);
             stmt.setInt(1, id);
 
             ResultSet rs = stmt.executeQuery();
